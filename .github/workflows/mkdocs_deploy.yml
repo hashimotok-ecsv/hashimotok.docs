@@ -27,19 +27,21 @@ jobs:
           python-version: 3.x
 
       - name: Install MkDocs and Theme
-        run: |
-          pip install mkdocs-material
+        run: pip install mkdocs-material
 
-      - name: Configure Git for Deployment
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-      - name: Build and Deploy MkDocs
-        run: mkdocs gh-deploy --force --verbose
-        # --force は既存のgh-pagesブランチを上書きするために役立ちます。
-        # mkdocs.ymlで docs_dir: . と設定しているため、そのままビルドされます。
+      - name: Build MkDocs Site
+        # ビルドを実行し、結果をデフォルトの 'site' フォルダに出力
+        run: mkdocs build
+        # mkdocs gh-deploy は upload と deploy を同時に行うため、
+        # ここでは単に mkdocs build に変更します。
 
+      # ★ 必須追加ステップ 1: ビルド結果をアーティファクトとしてアップロード
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3 # GitHub Pages専用のアップロードアクション
+        with:
+          path: 'site' # MkDocsのビルド出力先ディレクトリ
+
+      # ★ 必須追加ステップ 2: デプロイ
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 # 新しいGitHub Pagesのデプロイアクション
+        uses: actions/deploy-pages@v4
