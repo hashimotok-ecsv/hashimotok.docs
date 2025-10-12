@@ -1,12 +1,9 @@
 site_name: K's Bot Documentation
 site_url: https://hashimotok-ecsv.github.io/hashimotok.docs/
 
-# 重要な設定: 
-# mkdocs.ymlと同じ階層をドキュメントルートとして使用
-# docs_dirはデフォルトの'docs'ではなく、'.' (カレントディレクトリ)に設定
-# ⚠️ 注意: これにより、mkdocs.ymlと同じ階層にあるすべての .md ファイルがドキュメントとして扱われます。
-# リポジトリ直下の .github などを除外するために .gitignore や exclude: を使用することが推奨されます。
-docs_dir: . 
+# 重要な修正: ドキュメントのソースフォルダを明示的に子ディレクトリに指定
+# 💡 リポジトリのルート直下にあるドキュメントファイルを全てこのフォルダに移動してください。
+docs_dir: build_docs
 
 theme:
   name: material
