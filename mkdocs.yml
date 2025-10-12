@@ -1,0 +1,28 @@
+site_name: K's Bot Documentation
+site_url: https://hashimotok-ecsv.github.io/hashimotok.docs/
+
+# 重要な設定: 
+# mkdocs.ymlと同じ階層をドキュメントルートとして使用
+# docs_dirはデフォルトの'docs'ではなく、'.' (カレントディレクトリ)に設定
+# ⚠️ 注意: これにより、mkdocs.ymlと同じ階層にあるすべての .md ファイルがドキュメントとして扱われます。
+# リポジトリ直下の .github などを除外するために .gitignore や exclude: を使用することが推奨されます。
+docs_dir: . 
+
+theme:
+  name: material
+  language: ja
+  features:
+    - navigation.expand
+    - content.code.copy
+
+# ナビゲーション (手動で各リポジトリのトップページを登録)
+nav:
+  - はじめに: index.md
+  - Cultivate:
+      - トップページ: cultivate/index.md # 親項目の直下に子リストを定義
+      - 吊下げメッセージ機能: cultivate/system/sticky.md
+  # 他のリポジトリが増えたら追記
+
+plugins:
+  # ファイル構造が複雑な場合に、目次自動生成などで役立つプラグイン
+  - search

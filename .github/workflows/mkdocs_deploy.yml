@@ -1,0 +1,45 @@
+name: Deploy MkDocs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master # ドキュメントリポジトリのメインブランチにプッシュされたら実行
+
+permissions:
+  contents: write # 必須: gh-pagesブランチへの書き込み権限
+  pages: write    # 必須: GitHub Pages設定を更新する権限
+  id-token: write # 必須: OpenID Connect (OIDC) を使用する権限 (pagesデプロイに必要)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Install MkDocs and Theme
+        run: |
+          pip install mkdocs-material
+
+      - name: Configure Git for Deployment
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+      - name: Build and Deploy MkDocs
+        run: mkdocs gh-deploy --force --verbose
+        # --force は既存のgh-pagesブランチを上書きするために役立ちます。
+        # mkdocs.ymlで docs_dir: . と設定しているため、そのままビルドされます。
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # 新しいGitHub Pagesのデプロイアクション
