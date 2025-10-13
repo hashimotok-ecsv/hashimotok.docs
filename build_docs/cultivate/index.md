@@ -5,3 +5,4 @@ Cultivateは，とある界隈サーバー専用の無料配布Discord Botです
 このBotを導入すれば最低限の界隈サーバー運営が可能になることを目標に開発されています。
 ## 機能一覧
 - [吊下げメッセージ機能](./system/sticky.md)
+- [役職パネル機能](./system/role_panel.md)
