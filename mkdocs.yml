@@ -18,6 +18,11 @@ nav:
   - Cultivate:
       - トップページ: cultivate/index.md # 親項目の直下に子リストを定義
       - 吊下げメッセージ機能: cultivate/system/sticky.md
+      - 役職パネル機能: cultivate/system/role_panel.md
+      - 設定パネル:
+        - 使い方: cultivate/system/setting_panel.md
+        - 寝落ち送り機能: cultivate/system/sleep.md
+        - BotVC入退室時VC人数変更機能: cultivate/system/bot_vc_limit.md
   # 他のリポジトリが増えたら追記
 
 plugins:
