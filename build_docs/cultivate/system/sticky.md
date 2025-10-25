@@ -12,7 +12,7 @@
 - `!?sticky &count=5 &time=5 &name=送信者名 &icon=https://example.com/icon.png &content=本文（改行や空白OK） &embed_title=タイトル &embed_description=説明 &embed_color=#ff0000 &embed_footer=フッター文 &embed_thumbnail=https://example.com/thumb.png &embed_image=https://example.com/img.png &embed_author=著者名 &embed_url=https://example.com &embed_timestamp=true &silent=true`
     - 指定チャンネルに吊下げメッセージを設定します。
     - `&count` : メッセージを送信するまでの通常メッセージ数 (デフォルト: 5)
-    - `&time` : メッセージを送信するまでの時間 (分) (デフォルト: 5)
+    - `&time` : メッセージを送信するまでの時間 (秒) (デフォルト: 5)
     - `&name` : メッセージ送信者名 (デフォルト: Cultivate)
         - nameまたはiconを設定した場合，Webhookを使用してメッセージを送信します。
     - `&icon` : メッセージ送信者アイコンURL (デフォルト: Cultivateのアイコン)
@@ -38,3 +38,5 @@
 - `/sticky edit [<チャンネル>]`
     - 指定チャンネルの吊下げメッセージ設定を編集します。
     - チャンネルを省略した場合，コマンド実行チャンネルが対象となります。
+## 処理フロー
+![フローチャート](../drawio/sticky_timer_and_counter.drawio.svg)
