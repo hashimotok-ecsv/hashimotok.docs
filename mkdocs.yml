@@ -17,12 +17,13 @@ nav:
   - はじめに: index.md
   - Cultivate:
       - トップページ: cultivate/index.md # 親項目の直下に子リストを定義
+      - 裏2shot（開発版）: cultivate/system/back_2shot.md
       - 吊下げメッセージ機能: cultivate/system/sticky.md
       - 役職パネル機能: cultivate/system/role_panel.md
       - 設定パネル:
         - 使い方: cultivate/system/setting_panel.md
-        - 寝落ち送り機能: cultivate/system/sleep.md
-        - BotVC入退室時VC人数変更機能: cultivate/system/bot_vc_limit.md
+        - 寝落ち送り機能: cultivate/system/settings/sleep.md
+        - BotVC入退室時VC人数変更機能: cultivate/system/settings/bot_vc_limit.md
   # 他のリポジトリが増えたら追記
 
 plugins:
