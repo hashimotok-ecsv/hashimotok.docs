@@ -10,3 +10,4 @@ Cultivateは，とある界隈サーバー専用の無料配布Discord Botです
 - [設定パネル](./system/setting_panel.md)
     - [寝落ち送り機能](./system/settings/sleep.md)
     - [BotVC入退室時VC人数変更機能](./system/settings/bot_vc_limit.md)
+    - [画像投稿スポイラー判定機能](./system/settings/spoiler_check.md)
